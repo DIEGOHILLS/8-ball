@@ -127,7 +127,7 @@ export default function Magic8Ball() {
         <div className="mb-8">
           <h1 className={`text-6xl font-bold ${t.text} mb-2 flex items-center justify-center gap-3`}><Sparkles className={`${t.accent} ${!prefersReducedMotion && 'animate-pulse'}`} size={50} />Mystic 8-Ball<Sparkles className={`${t.accent} ${!prefersReducedMotion && 'animate-pulse'}`} size={50} /></h1>
           <p className={`${t.secondary} text-xl`}>Seek wisdom from the cosmic sphere</p>
-          <p className={`${t.secondary} text-sm mt-2`}>{isLimited ? '✨ You\'ve received today\'s wisdom' : `${shakesRemaining} shake${shakesRemaining !== 1 ? 's' : ''} remaining (resets in 2 hours)`}</p>
+          <p className={`${t.secondary} text-sm mt-2`}>{isLimited ? 'You\'ve received today\'s wisdom' : `${shakesRemaining} shake${shakesRemaining !== 1 ? 's' : ''} remaining (resets in 2 hours)`}</p>
         </div>
 
         <div className="mb-6 max-w-md mx-auto"><input type="text" value={question} onChange={(e) => setQuestion(e.target.value)} placeholder="What's your question? (optional)" disabled={isLimited} className={`w-full px-6 py-3 rounded-full ${isZen ? 'bg-white border-2 border-gray-300 text-gray-900 placeholder-gray-400' : 'bg-white bg-opacity-20 text-white placeholder-gray-300'} backdrop-blur-md focus:outline-none focus:ring-2 focus:ring-purple-500 disabled:opacity-50`} /></div>
@@ -137,7 +137,7 @@ export default function Magic8Ball() {
         </div>
 
         <div className="relative w-96 h-96 mx-auto" style={{perspective: '1000px'}}>
-          {showHands && !prefersReducedMotion && <><div className="absolute left-0 top-1/2 -translate-y-1/2 text-8xl z-20" style={{animation: 'handShakeLeft 1s ease-in-out'}}>👐</div><div className="absolute right-0 top-1/2 -translate-y-1/2 text-8xl z-20" style={{animation: 'handShakeRight 1s ease-in-out'}}>👐</div></>}
+          {showHands && !prefersReducedMotion && <><div className="absolute left-0 top-1/2 -translate-y-1/2 text-8xl z-20" style={{animation: 'handShakeLeft 1s ease-in-out'}}></div><div className="absolute right-0 top-1/2 -translate-y-1/2 text-8xl z-20" style={{animation: 'handShakeRight 1s ease-in-out'}}></div></>}
           <div onClick={handleShake} className={`relative w-full h-full ${!isLimited && 'cursor-pointer hover:scale-105'} transition-all ${isShaking ? prefersReducedMotion ? 'animate-fadeScale' : '' : ''}`} style={{transformStyle: 'preserve-3d', animation: isShaking && !prefersReducedMotion ? 'shake3d 1s ease-in-out' : 'none'}}>
             <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 w-64 h-8 bg-black opacity-30 rounded-full blur-xl"></div>
             <div className={`absolute inset-0 rounded-full bg-gradient-to-br ${t.ball} shadow-2xl`} style={{boxShadow: '0 25px 50px -12px rgba(0,0,0,0.8), inset 0 -20px 40px rgba(255,255,255,0.1)'}}>
